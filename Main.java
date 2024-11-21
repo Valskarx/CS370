@@ -5,6 +5,7 @@ import java.awt.event.*;
 public class resumeFiller extends JFrame {
     private JPanel cardPanel;
     String[] formNames = {};
+    String[] appNames = {};
     private JPanel mainMenu;
     private JPanel header;
     private JLabel programTitle;
@@ -233,12 +234,20 @@ public class resumeFiller extends JFrame {
         createAppButton.setBackground(new Color(158, 182, 219));
         createAppButton.setMaximumSize(new Dimension(350, 50));
         createAppButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        createAppButton.addActionListener(e -> {
+            CardLayout cl = (CardLayout) cardPanel.getLayout();
+            cl.show(cardPanel, "Create Application Page");
+        });
         createAppButton.setVisible(true);
         deleteAppButton.setText("Delete an Application");
         deleteAppButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
         deleteAppButton.setBackground(new Color(158, 182, 219));
         deleteAppButton.setMaximumSize(new Dimension(350, 50));
         deleteAppButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        deleteAppButton.addActionListener(e -> {
+            CardLayout cl = (CardLayout) cardPanel.getLayout();
+            cl.show(cardPanel, "Delete Application Page");
+        });
         deleteAppButton.setVisible(true);
         viewAppButton.setText("View Applications");
         viewAppButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
@@ -663,7 +672,7 @@ public class resumeFiller extends JFrame {
         return container;
     }
 
-    /*
+
     private JPanel createDeleteFormPage() {
         JPanel container = new JPanel();
         JPanel container1 = new JPanel();
@@ -689,8 +698,20 @@ public class resumeFiller extends JFrame {
         header.add(pageTitle, BorderLayout.SOUTH);
         JPanel deleteSelection = new JPanel();
         deleteSelection.setBackground(Color.WHITE);
-        deleteSelection.setLayout(new BoxLayout(deleteSelection, BoxLayout.Y_AXIS));
-        deleteSelection.setPreferredSize(new Dimension(500, 400));
+        deleteSelection.setLayout(new GridLayout(8, 1));
+        deleteSelection.setPreferredSize(new Dimension(500, 350));
+        JPanel emptyBox1 = new JPanel();
+        emptyBox1.setBackground(Color.WHITE);
+        emptyBox1.setVisible(true);
+        deleteSelection.add(emptyBox1);
+        JPanel emptyBox2 = new JPanel();
+        emptyBox2.setBackground(Color.WHITE);
+        emptyBox2.setVisible(true);
+        deleteSelection.add(emptyBox2);
+        JPanel emptyBox3 = new JPanel();
+        emptyBox3.setBackground(Color.WHITE);
+        emptyBox3.setVisible(true);
+        deleteSelection.add(emptyBox3);
         JLabel deletePrompt = new JLabel();
         JComboBox<String> formDropdown = new JComboBox<>(formNames);
         deletePrompt.setText("Choose the form you want to delete: ");
@@ -705,17 +726,29 @@ public class resumeFiller extends JFrame {
         formDropdown.setMaximumSize(new Dimension(400, 50));
         formDropdown.setVisible(true);
         deleteSelection.add(formDropdown);
+        JPanel emptyBox4 = new JPanel();
+        emptyBox4.setBackground(Color.WHITE);
+        emptyBox4.setVisible(true);
+        deleteSelection.add(emptyBox4);
+        JPanel emptyBox5 = new JPanel();
+        emptyBox5.setBackground(Color.WHITE);
+        emptyBox5.setVisible(true);
+        deleteSelection.add(emptyBox5);
+        JPanel emptyBox6 = new JPanel();
+        emptyBox6.setBackground(Color.WHITE);
+        emptyBox6.setVisible(true);
+        deleteSelection.add(emptyBox6);
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.WHITE);
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
-        buttonPanel.setPreferredSize(new Dimension(400, 100));
+        buttonPanel.setPreferredSize(new Dimension(400, 50));
         JButton cancelButton = new JButton();
         JButton saveButton = new JButton();
         buttonPanel.add(Box.createHorizontalStrut(100));
         cancelButton.setText("Cancel");
         cancelButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
         cancelButton.setBackground(new Color(158, 182, 219));
-        cancelButton.setMaximumSize(new Dimension(150, 40));
+        cancelButton.setMaximumSize(new Dimension(150, 50));
         cancelButton.addActionListener(e -> {
             CardLayout cl = (CardLayout) cardPanel.getLayout();
             cl.show(cardPanel, "Form Page");
@@ -730,14 +763,14 @@ public class resumeFiller extends JFrame {
         saveButton.setVisible(true);
         buttonPanel.add(saveButton);
         buttonPanel.add(Box.createHorizontalStrut(100));
-        container.add(header);
         container1.add(deleteSelection);
         container1.add(buttonPanel);
+        container.add(header);
         container.add(container1);
 
         return container;
     }
-    */
+
 
     private JPanel createViewFormPage() {
         JPanel container = new JPanel();
@@ -895,17 +928,204 @@ public class resumeFiller extends JFrame {
         return container;
     }
 
-    /*
     private JPanel createCreateApplicationPage() {
+        JPanel container = new JPanel();
+        JPanel container1 = new JPanel();
+        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+        container1.setLayout(new BoxLayout(container1, BoxLayout.Y_AXIS));
+        JPanel header = new JPanel();
+        header.setBackground(new Color(158, 182, 219));
+        header.setLayout(new BorderLayout());
+        header.setPreferredSize(new Dimension(700, 100));
+        JLabel programTitle = new JLabel();
+        JLabel pageTitle = new JLabel();
+        programTitle.setText("ResumeFiller");
+        programTitle.setHorizontalAlignment(SwingConstants.CENTER);
+        programTitle.setFont(new Font("Lucida Fax", Font.PLAIN, 30));
+        programTitle.setForeground(Color.BLACK);
+        programTitle.setVisible(true);
+        pageTitle.setText("Create Application");
+        pageTitle.setHorizontalAlignment(SwingConstants.CENTER);
+        pageTitle.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
+        pageTitle.setForeground(Color.BLACK);
+        pageTitle.setVisible(true);
+        header.add(programTitle, BorderLayout.NORTH);
+        header.add(pageTitle, BorderLayout.SOUTH);
+        JPanel createSelection = new JPanel();
+        createSelection.setBackground(Color.WHITE);
+        createSelection.setLayout(new GridLayout(8, 1));
+        createSelection.setPreferredSize(new Dimension(500, 350));
+        JPanel emptyBox1 = new JPanel();
+        emptyBox1.setBackground(Color.WHITE);
+        emptyBox1.setVisible(true);
+        createSelection.add(emptyBox1);
+        JPanel emptyBox2 = new JPanel();
+        emptyBox2.setBackground(Color.WHITE);
+        emptyBox2.setVisible(true);
+        createSelection.add(emptyBox2);
+        JLabel appNamePrompt = new JLabel();
+        JTextField inputAppField = new JTextField();
+        JLabel formNamePrompt = new JLabel();
+        JComboBox<String> formDropdown = new JComboBox<>(formNames);
+        appNamePrompt.setText("Application Name:");
+        appNamePrompt.setHorizontalAlignment(SwingConstants.LEFT);
+        appNamePrompt.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
+        appNamePrompt.setForeground(Color.BLACK);
+        appNamePrompt.setMaximumSize(new Dimension(400, 50));
+        appNamePrompt.setVisible(true);
+        createSelection.add(appNamePrompt);
+        inputAppField.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
+        inputAppField.setForeground(Color.BLACK);
+        inputAppField.setVisible(true);
+        createSelection.add(inputAppField);
+        formNamePrompt.setText("Choose the form you want to use in the autofill:");
+        formNamePrompt.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
+        formNamePrompt.setForeground(Color.BLACK);
+        formNamePrompt.setVisible(true);
+        createSelection.add(formNamePrompt);
+        formDropdown.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
+        formDropdown.setForeground(Color.BLACK);
+        formDropdown.setMaximumSize(new Dimension(400, 50));
+        formDropdown.setVisible(true);
+        createSelection.add(formDropdown);
+        JPanel emptyBox3 = new JPanel();
+        emptyBox3.setBackground(Color.WHITE);
+        emptyBox3.setVisible(true);
+        createSelection.add(emptyBox3);
+        JPanel emptyBox4 = new JPanel();
+        emptyBox4.setBackground(Color.WHITE);
+        emptyBox4.setVisible(true);
+        createSelection.add(emptyBox4);
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(Color.WHITE);
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
+        buttonPanel.setPreferredSize(new Dimension(400, 50));
+        JButton cancelButton = new JButton();
+        JButton saveButton = new JButton();
+        buttonPanel.add(Box.createHorizontalStrut(100));
+        cancelButton.setText("Cancel");
+        cancelButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
+        cancelButton.setBackground(new Color(158, 182, 219));
+        cancelButton.setMaximumSize(new Dimension(150, 50));
+        cancelButton.addActionListener(e -> {
+            CardLayout cl = (CardLayout) cardPanel.getLayout();
+            cl.show(cardPanel, "Application Page");
+        });
+        cancelButton.setVisible(true);
+        buttonPanel.add(cancelButton);
+        buttonPanel.add(Box.createHorizontalStrut(200));
+        saveButton.setText("Save");
+        saveButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
+        saveButton.setBackground(new Color(158, 182, 219));
+        saveButton.setMaximumSize(new Dimension(150, 50));
+        saveButton.setVisible(true);
+        buttonPanel.add(saveButton);
+        buttonPanel.add(Box.createHorizontalStrut(100));
+        container1.add(createSelection);
+        container1.add(buttonPanel);
+        container.add(header);
+        container.add(container1);
 
+        return container;
     }
-    */
 
-    /*
     private JPanel createDeleteApplicationPage() {
+        JPanel container = new JPanel();
+        JPanel container1 = new JPanel();
+        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+        container1.setLayout(new BoxLayout(container1, BoxLayout.Y_AXIS));
+        JPanel header = new JPanel();
+        header.setBackground(new Color(158, 182, 219));
+        header.setLayout(new BorderLayout());
+        header.setPreferredSize(new Dimension(700, 100));
+        JLabel programTitle = new JLabel();
+        JLabel pageTitle = new JLabel();
+        programTitle.setText("ResumeFiller");
+        programTitle.setHorizontalAlignment(SwingConstants.CENTER);
+        programTitle.setFont(new Font("Lucida Fax", Font.PLAIN, 30));
+        programTitle.setForeground(Color.BLACK);
+        programTitle.setVisible(true);
+        pageTitle.setText("Delete Form");
+        pageTitle.setHorizontalAlignment(SwingConstants.CENTER);
+        pageTitle.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
+        pageTitle.setForeground(Color.BLACK);
+        pageTitle.setVisible(true);
+        header.add(programTitle, BorderLayout.NORTH);
+        header.add(pageTitle, BorderLayout.SOUTH);
+        JPanel deleteSelection = new JPanel();
+        deleteSelection.setBackground(Color.WHITE);
+        deleteSelection.setLayout(new GridLayout(8, 1));
+        deleteSelection.setPreferredSize(new Dimension(500, 350));
+        JPanel emptyBox1 = new JPanel();
+        emptyBox1.setBackground(Color.WHITE);
+        emptyBox1.setVisible(true);
+        deleteSelection.add(emptyBox1);
+        JPanel emptyBox2 = new JPanel();
+        emptyBox2.setBackground(Color.WHITE);
+        emptyBox2.setVisible(true);
+        deleteSelection.add(emptyBox2);
+        JPanel emptyBox3 = new JPanel();
+        emptyBox3.setBackground(Color.WHITE);
+        emptyBox3.setVisible(true);
+        deleteSelection.add(emptyBox3);
+        JLabel deletePrompt = new JLabel();
+        JComboBox<String> formDropdown = new JComboBox<>(appNames);
+        deletePrompt.setText("Choose the application you want to delete: ");
+        deletePrompt.setHorizontalAlignment(SwingConstants.LEFT);
+        deletePrompt.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
+        deletePrompt.setForeground(Color.BLACK);
+        deletePrompt.setMaximumSize(new Dimension(400, 50));
+        deletePrompt.setVisible(true);
+        deleteSelection.add(deletePrompt);
+        formDropdown.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
+        formDropdown.setForeground(Color.BLACK);
+        formDropdown.setMaximumSize(new Dimension(400, 50));
+        formDropdown.setVisible(true);
+        deleteSelection.add(formDropdown);
+        JPanel emptyBox4 = new JPanel();
+        emptyBox4.setBackground(Color.WHITE);
+        emptyBox4.setVisible(true);
+        deleteSelection.add(emptyBox4);
+        JPanel emptyBox5 = new JPanel();
+        emptyBox5.setBackground(Color.WHITE);
+        emptyBox5.setVisible(true);
+        deleteSelection.add(emptyBox5);
+        JPanel emptyBox6 = new JPanel();
+        emptyBox6.setBackground(Color.WHITE);
+        emptyBox6.setVisible(true);
+        deleteSelection.add(emptyBox6);
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(Color.WHITE);
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
+        buttonPanel.setPreferredSize(new Dimension(400, 50));
+        JButton cancelButton = new JButton();
+        JButton saveButton = new JButton();
+        buttonPanel.add(Box.createHorizontalStrut(100));
+        cancelButton.setText("Cancel");
+        cancelButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
+        cancelButton.setBackground(new Color(158, 182, 219));
+        cancelButton.setMaximumSize(new Dimension(150, 50));
+        cancelButton.addActionListener(e -> {
+            CardLayout cl = (CardLayout) cardPanel.getLayout();
+            cl.show(cardPanel, "Application Page");
+        });
+        cancelButton.setVisible(true);
+        buttonPanel.add(cancelButton);
+        buttonPanel.add(Box.createHorizontalStrut(200));
+        saveButton.setText("Save");
+        saveButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
+        saveButton.setBackground(new Color(158, 182, 219));
+        saveButton.setMaximumSize(new Dimension(150, 50));
+        saveButton.setVisible(true);
+        buttonPanel.add(saveButton);
+        buttonPanel.add(Box.createHorizontalStrut(100));
+        container1.add(deleteSelection);
+        container1.add(buttonPanel);
+        container.add(header);
+        container.add(container1);
 
+        return container;
     }
-    */
 
     private JPanel createViewApplicationPage() {
         JPanel container = new JPanel();
@@ -1074,10 +1294,10 @@ public class resumeFiller extends JFrame {
         JPanel settingsPage = createSettingsPage();
         JPanel createFormPage = createCreateFormPage();
         JPanel editFormPage = createEditFormPage();
-        //JPanel deleteFormPage = createDeleteFormPage();
+        JPanel deleteFormPage = createDeleteFormPage();
         JPanel viewFormPage = createViewFormPage();
-        //JPanel createApplicationPage = createCreateApplicationPage();
-        //JPanel deleteApplicationPage = createDeleteApplicationPage();
+        JPanel createApplicationPage = createCreateApplicationPage();
+        JPanel deleteApplicationPage = createDeleteApplicationPage();
         JPanel viewApplicationPage = createViewApplicationPage();
 
         cardPanel.add(mainMenu, "Main Menu");
@@ -1086,10 +1306,10 @@ public class resumeFiller extends JFrame {
         cardPanel.add(settingsPage, "Settings Page");
         cardPanel.add(createFormPage, "Create Form Page");
         cardPanel.add(editFormPage, "Edit Form Page");
-        //cardPanel.add(deleteFormPage, "Delete Form Page");
+        cardPanel.add(deleteFormPage, "Delete Form Page");
         cardPanel.add(viewFormPage, "View Form Page");
-        //cardPanel.add(createApplicationPage, "Create Application Page");
-        //cardPanel.add(deleteApplicationPage, "Delete Application Page");
+        cardPanel.add(createApplicationPage, "Create Application Page");
+        cardPanel.add(deleteApplicationPage, "Delete Application Page");
         cardPanel.add(viewApplicationPage, "View Application Page");
 
         add(cardPanel);
