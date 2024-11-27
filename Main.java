@@ -1,20 +1,11 @@
 import java.awt.*;
 import javax.swing.*;
-import java.awt.event.*;
 
 public class resumeFiller extends JFrame {
     private JPanel cardPanel;
+    private Color uiColor = new Color(158, 182, 219);
     String[] formNames = {};
-    String[] appNames = {};
-    private JPanel mainMenu;
-    private JPanel header;
-    private JLabel programTitle;
-    private JLabel pageTitle;
-    private JPanel buttonPanel;
-    private JButton formButton;
-    private JButton appButton;
-    private JButton settingsButton;
-    private JButton quitButton;
+
     static public void main(String[] args) {
         SwingUtilities.invokeLater(resumeFiller::new);
     }
@@ -23,7 +14,7 @@ public class resumeFiller extends JFrame {
         JPanel container = new JPanel();
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         JPanel header = new JPanel();
-        header.setBackground(new Color(158, 182, 219));
+        header.setBackground(uiColor);
         header.setLayout(new BorderLayout());
         header.setPreferredSize(new Dimension(700, 100));
         JLabel programTitle = new JLabel();
@@ -51,7 +42,7 @@ public class resumeFiller extends JFrame {
         JButton quitButton = new JButton();
         formButton.setText("Your Resumes");
         formButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        formButton.setBackground(new Color(158, 182, 219));
+        formButton.setBackground(uiColor);
         formButton.setMaximumSize(new Dimension(350, 50));
         formButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         formButton.addActionListener(e -> {
@@ -59,19 +50,19 @@ public class resumeFiller extends JFrame {
             cl.show(cardPanel, "Form Page");
         });
         formButton.setVisible(true);
-        appButton.setText("Your Applications");
+        appButton.setText("Autofill an Application");
         appButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        appButton.setBackground(new Color(158, 182, 219));
+        appButton.setBackground(uiColor);
         appButton.setMaximumSize(new Dimension(350, 50));
         appButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         appButton.addActionListener(e -> {
             CardLayout cl = (CardLayout) cardPanel.getLayout();
-            cl.show(cardPanel, "Application Page");
+            cl.show(cardPanel, "Create Application Page");
         });
         appButton.setVisible(true);
         settingsButton.setText("Settings");
         settingsButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        settingsButton.setBackground(new Color(158, 182, 219));
+        settingsButton.setBackground(uiColor);
         settingsButton.setMaximumSize(new Dimension(350, 50));
         settingsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         settingsButton.setVisible(true);
@@ -81,7 +72,7 @@ public class resumeFiller extends JFrame {
         });
         quitButton.setText("Quit");
         quitButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        quitButton.setBackground(new Color(158, 182, 219));
+        quitButton.setBackground(uiColor);
         quitButton.setMaximumSize(new Dimension(350, 50));
         quitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         quitButton.addActionListener(e -> {
@@ -106,7 +97,7 @@ public class resumeFiller extends JFrame {
         JPanel container = new JPanel();
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         JPanel header = new JPanel();
-        header.setBackground(new Color(158, 182, 219));
+        header.setBackground(uiColor);
         header.setLayout(new BorderLayout());
         header.setPreferredSize(new Dimension(700, 100));
         JLabel programTitle = new JLabel();
@@ -135,7 +126,7 @@ public class resumeFiller extends JFrame {
         JButton returnHomeButton = new JButton();
         createFormButton.setText("Create a Resume");
         createFormButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        createFormButton.setBackground(new Color(158, 182, 219));
+        createFormButton.setBackground(uiColor);
         createFormButton.setMaximumSize(new Dimension(350, 50));
         createFormButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         createFormButton.addActionListener(e -> {
@@ -145,7 +136,7 @@ public class resumeFiller extends JFrame {
         createFormButton.setVisible(true);
         editFormButton.setText("Edit a Resume");
         editFormButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        editFormButton.setBackground(new Color(158, 182, 219));
+        editFormButton.setBackground(uiColor);
         editFormButton.setMaximumSize(new Dimension(350, 50));
         editFormButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         editFormButton.addActionListener(e -> {
@@ -155,7 +146,7 @@ public class resumeFiller extends JFrame {
         editFormButton.setVisible(true);
         deleteFormButton.setText("Delete a Resume");
         deleteFormButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        deleteFormButton.setBackground(new Color(158, 182, 219));
+        deleteFormButton.setBackground(uiColor);
         deleteFormButton.setMaximumSize(new Dimension(350, 50));
         deleteFormButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         deleteFormButton.addActionListener(e -> {
@@ -165,7 +156,7 @@ public class resumeFiller extends JFrame {
         deleteFormButton.setVisible(true);
         viewFormButton.setText("View Resumes");
         viewFormButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        viewFormButton.setBackground(new Color(158, 182, 219));
+        viewFormButton.setBackground(uiColor);
         viewFormButton.setMaximumSize(new Dimension(350, 50));
         viewFormButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         viewFormButton.addActionListener(e -> {
@@ -175,7 +166,7 @@ public class resumeFiller extends JFrame {
         viewFormButton.setVisible(true);
         returnHomeButton.setText("Return to Main Menu");
         returnHomeButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        returnHomeButton.setBackground(new Color(158, 182, 219));
+        returnHomeButton.setBackground(uiColor);
         returnHomeButton.setMaximumSize(new Dimension(350, 50));
         returnHomeButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         returnHomeButton.addActionListener(e -> {
@@ -198,96 +189,12 @@ public class resumeFiller extends JFrame {
 
         return container;
     }
-
-    private JPanel createApplicationPage() {
-        JPanel container = new JPanel();
-        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
-        JPanel header = new JPanel();
-        header.setBackground(new Color(158, 182, 219));
-        header.setLayout(new BorderLayout());
-        header.setPreferredSize(new Dimension(700, 100));
-        JLabel programTitle = new JLabel();
-        JLabel pageTitle = new JLabel();
-        programTitle.setText("ResumeFiller");
-        programTitle.setHorizontalAlignment(SwingConstants.CENTER);
-        programTitle.setFont(new Font("Lucida Fax", Font.PLAIN, 30));
-        programTitle.setForeground(Color.BLACK);
-        programTitle.setVisible(true);
-        pageTitle.setText("Your Applications");
-        pageTitle.setHorizontalAlignment(SwingConstants.CENTER);
-        pageTitle.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        pageTitle.setForeground(Color.BLACK);
-        pageTitle.setVisible(true);
-        header.add(programTitle, BorderLayout.NORTH);
-        header.add(pageTitle, BorderLayout.SOUTH);
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setPreferredSize(new Dimension(700, 400));
-        buttonPanel.setBackground(Color.WHITE);
-        BoxLayout boxlayout = new BoxLayout(buttonPanel, BoxLayout.Y_AXIS);
-        buttonPanel.setLayout(boxlayout);
-        JButton createAppButton = new JButton();
-        JButton deleteAppButton = new JButton();
-        JButton viewAppButton = new JButton();
-        JButton returnHomeButton = new JButton();
-        createAppButton.setText("Create an Application");
-        createAppButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        createAppButton.setBackground(new Color(158, 182, 219));
-        createAppButton.setMaximumSize(new Dimension(350, 50));
-        createAppButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        createAppButton.addActionListener(e -> {
-            CardLayout cl = (CardLayout) cardPanel.getLayout();
-            cl.show(cardPanel, "Create Application Page");
-        });
-        createAppButton.setVisible(true);
-        deleteAppButton.setText("Delete an Application");
-        deleteAppButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        deleteAppButton.setBackground(new Color(158, 182, 219));
-        deleteAppButton.setMaximumSize(new Dimension(350, 50));
-        deleteAppButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        deleteAppButton.addActionListener(e -> {
-            CardLayout cl = (CardLayout) cardPanel.getLayout();
-            cl.show(cardPanel, "Delete Application Page");
-        });
-        deleteAppButton.setVisible(true);
-        viewAppButton.setText("View Applications");
-        viewAppButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        viewAppButton.setBackground(new Color(158, 182, 219));
-        viewAppButton.setMaximumSize(new Dimension(350, 50));
-        viewAppButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        viewAppButton.addActionListener(e -> {
-            CardLayout cl = (CardLayout) cardPanel.getLayout();
-            cl.show(cardPanel, "View Application Page");
-        });
-        viewAppButton.setVisible(true);
-        returnHomeButton.setText("Return to Main Menu");
-        returnHomeButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        returnHomeButton.setBackground(new Color(158, 182, 219));
-        returnHomeButton.setMaximumSize(new Dimension(350, 50));
-        returnHomeButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        returnHomeButton.addActionListener(e -> {
-            CardLayout cl = (CardLayout) cardPanel.getLayout();
-            cl.show(cardPanel, "Main Menu");
-        });
-        returnHomeButton.setVisible(true);
-        buttonPanel.add(Box.createVerticalStrut(25));
-        buttonPanel.add(createAppButton);
-        buttonPanel.add(Box.createVerticalStrut(30));
-        buttonPanel.add(deleteAppButton);
-        buttonPanel.add(Box.createVerticalStrut(30));
-        buttonPanel.add(viewAppButton);
-        buttonPanel.add(Box.createVerticalStrut(30));
-        buttonPanel.add(returnHomeButton);
-        container.add(header);
-        container.add(buttonPanel);
-
-        return container;
-    }
-
+    
     private JPanel createSettingsPage() {
         JPanel container = new JPanel();
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         JPanel header = new JPanel();
-        header.setBackground(new Color(158, 182, 219));
+        header.setBackground(uiColor);
         header.setLayout(new BorderLayout());
         header.setPreferredSize(new Dimension(700, 100));
         JLabel programTitle = new JLabel();
@@ -313,27 +220,37 @@ public class resumeFiller extends JFrame {
         JButton highContrastButton = new JButton();
         JButton defaultButton = new JButton();
         JButton returnHomeButton = new JButton();
-        deleteDataButton.setText("Clear All Data");
+        deleteDataButton.setText("Clear All Resume Data");
         deleteDataButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        deleteDataButton.setBackground(new Color(158, 182, 219));
+        deleteDataButton.setBackground(uiColor);
         deleteDataButton.setMaximumSize(new Dimension(350, 50));
         deleteDataButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         deleteDataButton.setVisible(true);
         highContrastButton.setText("High Contrast Mode");
         highContrastButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        highContrastButton.setBackground(new Color(158, 182, 219));
+        highContrastButton.setBackground(uiColor);
         highContrastButton.setMaximumSize(new Dimension(350, 50));
         highContrastButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        highContrastButton.addActionListener(e -> {
+            uiColor = Color.WHITE;
+            cardPanel.revalidate();
+            cardPanel.repaint();
+        });
         highContrastButton.setVisible(true);
         defaultButton.setText("Reset to Default");
         defaultButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        defaultButton.setBackground(new Color(158, 182, 219));
+        defaultButton.setBackground(uiColor);
         defaultButton.setMaximumSize(new Dimension(350, 50));
         defaultButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        defaultButton.addActionListener(e -> {
+            uiColor = new Color(158, 182, 219);
+            cardPanel.revalidate();
+            cardPanel.repaint();
+        });
         defaultButton.setVisible(true);
         returnHomeButton.setText("Return to Main Menu");
         returnHomeButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        returnHomeButton.setBackground(new Color(158, 182, 219));
+        returnHomeButton.setBackground(uiColor);
         returnHomeButton.setMaximumSize(new Dimension(350, 50));
         returnHomeButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         returnHomeButton.addActionListener(e -> {
@@ -361,7 +278,7 @@ public class resumeFiller extends JFrame {
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         container1.setLayout(new BoxLayout(container1, BoxLayout.X_AXIS));
         JPanel header = new JPanel();
-        header.setBackground(new Color(158, 182, 219));
+        header.setBackground(uiColor);
         header.setLayout(new BorderLayout());
         header.setPreferredSize(new Dimension(700, 100));
         JLabel programTitle = new JLabel();
@@ -442,7 +359,7 @@ public class resumeFiller extends JFrame {
         formPanelField.add(Box.createVerticalStrut(10));
         cancelButton.setText("Cancel");
         cancelButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        cancelButton.setBackground(new Color(158, 182, 219));
+        cancelButton.setBackground(uiColor);
         cancelButton.setMaximumSize(new Dimension(150, 40));
         cancelButton.setAlignmentX(Component.RIGHT_ALIGNMENT);
         cancelButton.addActionListener(e -> {
@@ -494,7 +411,7 @@ public class resumeFiller extends JFrame {
         inputTextField.add(inputField7);
         saveButton.setText("Save");
         saveButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        saveButton.setBackground(new Color(158, 182, 219));
+        saveButton.setBackground(uiColor);
         saveButton.setMaximumSize(new Dimension(150, 50));
         saveButton.setAlignmentX(Component.RIGHT_ALIGNMENT);
         saveButton.setVisible(true);
@@ -513,7 +430,7 @@ public class resumeFiller extends JFrame {
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         container1.setLayout(new BoxLayout(container1, BoxLayout.X_AXIS));
         JPanel header = new JPanel();
-        header.setBackground(new Color(158, 182, 219));
+        header.setBackground(uiColor);
         header.setLayout(new BorderLayout());
         header.setPreferredSize(new Dimension(700, 100));
         JLabel programTitle = new JLabel();
@@ -602,7 +519,7 @@ public class resumeFiller extends JFrame {
         formPanelField.add(Box.createVerticalStrut(15));
         cancelButton.setText("Cancel");
         cancelButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        cancelButton.setBackground(new Color(158, 182, 219));
+        cancelButton.setBackground(uiColor);
         cancelButton.setMaximumSize(new Dimension(150, 40));
         cancelButton.setAlignmentX(Component.RIGHT_ALIGNMENT);
         cancelButton.addActionListener(e -> {
@@ -659,7 +576,7 @@ public class resumeFiller extends JFrame {
         inputTextField.add(inputField7);
         saveButton.setText("Save");
         saveButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        saveButton.setBackground(new Color(158, 182, 219));
+        saveButton.setBackground(uiColor);
         saveButton.setMaximumSize(new Dimension(150, 50));
         saveButton.setAlignmentX(Component.RIGHT_ALIGNMENT);
         saveButton.setVisible(true);
@@ -672,14 +589,13 @@ public class resumeFiller extends JFrame {
         return container;
     }
 
-
     private JPanel createDeleteFormPage() {
         JPanel container = new JPanel();
         JPanel container1 = new JPanel();
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         container1.setLayout(new BoxLayout(container1, BoxLayout.Y_AXIS));
         JPanel header = new JPanel();
-        header.setBackground(new Color(158, 182, 219));
+        header.setBackground(uiColor);
         header.setLayout(new BorderLayout());
         header.setPreferredSize(new Dimension(700, 100));
         JLabel programTitle = new JLabel();
@@ -747,7 +663,7 @@ public class resumeFiller extends JFrame {
         buttonPanel.add(Box.createHorizontalStrut(100));
         cancelButton.setText("Cancel");
         cancelButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        cancelButton.setBackground(new Color(158, 182, 219));
+        cancelButton.setBackground(uiColor);
         cancelButton.setMaximumSize(new Dimension(150, 50));
         cancelButton.addActionListener(e -> {
             CardLayout cl = (CardLayout) cardPanel.getLayout();
@@ -756,9 +672,9 @@ public class resumeFiller extends JFrame {
         cancelButton.setVisible(true);
         buttonPanel.add(cancelButton);
         buttonPanel.add(Box.createHorizontalStrut(200));
-        saveButton.setText("Save");
+        saveButton.setText("Delete");
         saveButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        saveButton.setBackground(new Color(158, 182, 219));
+        saveButton.setBackground(uiColor);
         saveButton.setMaximumSize(new Dimension(150, 50));
         saveButton.setVisible(true);
         buttonPanel.add(saveButton);
@@ -771,14 +687,13 @@ public class resumeFiller extends JFrame {
         return container;
     }
 
-
     private JPanel createViewFormPage() {
         JPanel container = new JPanel();
         JPanel container1 = new JPanel();
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         container1.setLayout(new BoxLayout(container1, BoxLayout.X_AXIS));
         JPanel header = new JPanel();
-        header.setBackground(new Color(158, 182, 219));
+        header.setBackground(uiColor);
         header.setLayout(new BorderLayout());
         header.setPreferredSize(new Dimension(700, 100));
         JLabel programTitle = new JLabel();
@@ -911,7 +826,7 @@ public class resumeFiller extends JFrame {
         inputTextField.add(inputField7);
         returnButton.setText("Return to Form Page");
         returnButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        returnButton.setBackground(new Color(158, 182, 219));
+        returnButton.setBackground(uiColor);
         returnButton.setMaximumSize(new Dimension(350, 50));
         returnButton.setAlignmentX(Component.LEFT_ALIGNMENT);
         returnButton.addActionListener(e -> {
@@ -934,7 +849,7 @@ public class resumeFiller extends JFrame {
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         container1.setLayout(new BoxLayout(container1, BoxLayout.Y_AXIS));
         JPanel header = new JPanel();
-        header.setBackground(new Color(158, 182, 219));
+        header.setBackground(uiColor);
         header.setLayout(new BorderLayout());
         header.setPreferredSize(new Dimension(700, 100));
         JLabel programTitle = new JLabel();
@@ -944,7 +859,7 @@ public class resumeFiller extends JFrame {
         programTitle.setFont(new Font("Lucida Fax", Font.PLAIN, 30));
         programTitle.setForeground(Color.BLACK);
         programTitle.setVisible(true);
-        pageTitle.setText("Create Application");
+        pageTitle.setText("Autofill Form");
         pageTitle.setHorizontalAlignment(SwingConstants.CENTER);
         pageTitle.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
         pageTitle.setForeground(Color.BLACK);
@@ -963,21 +878,12 @@ public class resumeFiller extends JFrame {
         emptyBox2.setBackground(Color.WHITE);
         emptyBox2.setVisible(true);
         createSelection.add(emptyBox2);
-        JLabel appNamePrompt = new JLabel();
-        JTextField inputAppField = new JTextField();
+        JPanel emptyBox3 = new JPanel();
+        emptyBox3.setBackground(Color.WHITE);
+        emptyBox3.setVisible(true);
+        createSelection.add(emptyBox3);
         JLabel formNamePrompt = new JLabel();
         JComboBox<String> formDropdown = new JComboBox<>(formNames);
-        appNamePrompt.setText("Application Name:");
-        appNamePrompt.setHorizontalAlignment(SwingConstants.LEFT);
-        appNamePrompt.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        appNamePrompt.setForeground(Color.BLACK);
-        appNamePrompt.setMaximumSize(new Dimension(400, 50));
-        appNamePrompt.setVisible(true);
-        createSelection.add(appNamePrompt);
-        inputAppField.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        inputAppField.setForeground(Color.BLACK);
-        inputAppField.setVisible(true);
-        createSelection.add(inputAppField);
         formNamePrompt.setText("Choose the form you want to use in the autofill:");
         formNamePrompt.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
         formNamePrompt.setForeground(Color.BLACK);
@@ -988,14 +894,18 @@ public class resumeFiller extends JFrame {
         formDropdown.setMaximumSize(new Dimension(400, 50));
         formDropdown.setVisible(true);
         createSelection.add(formDropdown);
-        JPanel emptyBox3 = new JPanel();
-        emptyBox3.setBackground(Color.WHITE);
-        emptyBox3.setVisible(true);
-        createSelection.add(emptyBox3);
         JPanel emptyBox4 = new JPanel();
         emptyBox4.setBackground(Color.WHITE);
         emptyBox4.setVisible(true);
         createSelection.add(emptyBox4);
+        JPanel emptyBox5 = new JPanel();
+        emptyBox5.setBackground(Color.WHITE);
+        emptyBox5.setVisible(true);
+        createSelection.add(emptyBox5);
+        JPanel emptyBox6 = new JPanel();
+        emptyBox6.setBackground(Color.WHITE);
+        emptyBox6.setVisible(true);
+        createSelection.add(emptyBox6);
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.WHITE);
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
@@ -1005,278 +915,24 @@ public class resumeFiller extends JFrame {
         buttonPanel.add(Box.createHorizontalStrut(100));
         cancelButton.setText("Cancel");
         cancelButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        cancelButton.setBackground(new Color(158, 182, 219));
+        cancelButton.setBackground(uiColor);
         cancelButton.setMaximumSize(new Dimension(150, 50));
         cancelButton.addActionListener(e -> {
             CardLayout cl = (CardLayout) cardPanel.getLayout();
-            cl.show(cardPanel, "Application Page");
+            cl.show(cardPanel, "Main Menu");
         });
         cancelButton.setVisible(true);
         buttonPanel.add(cancelButton);
         buttonPanel.add(Box.createHorizontalStrut(200));
-        saveButton.setText("Save");
+        saveButton.setText("Autofill");
         saveButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        saveButton.setBackground(new Color(158, 182, 219));
+        saveButton.setBackground(uiColor);
         saveButton.setMaximumSize(new Dimension(150, 50));
         saveButton.setVisible(true);
         buttonPanel.add(saveButton);
         buttonPanel.add(Box.createHorizontalStrut(100));
         container1.add(createSelection);
         container1.add(buttonPanel);
-        container.add(header);
-        container.add(container1);
-
-        return container;
-    }
-
-    private JPanel createDeleteApplicationPage() {
-        JPanel container = new JPanel();
-        JPanel container1 = new JPanel();
-        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
-        container1.setLayout(new BoxLayout(container1, BoxLayout.Y_AXIS));
-        JPanel header = new JPanel();
-        header.setBackground(new Color(158, 182, 219));
-        header.setLayout(new BorderLayout());
-        header.setPreferredSize(new Dimension(700, 100));
-        JLabel programTitle = new JLabel();
-        JLabel pageTitle = new JLabel();
-        programTitle.setText("ResumeFiller");
-        programTitle.setHorizontalAlignment(SwingConstants.CENTER);
-        programTitle.setFont(new Font("Lucida Fax", Font.PLAIN, 30));
-        programTitle.setForeground(Color.BLACK);
-        programTitle.setVisible(true);
-        pageTitle.setText("Delete Form");
-        pageTitle.setHorizontalAlignment(SwingConstants.CENTER);
-        pageTitle.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        pageTitle.setForeground(Color.BLACK);
-        pageTitle.setVisible(true);
-        header.add(programTitle, BorderLayout.NORTH);
-        header.add(pageTitle, BorderLayout.SOUTH);
-        JPanel deleteSelection = new JPanel();
-        deleteSelection.setBackground(Color.WHITE);
-        deleteSelection.setLayout(new GridLayout(8, 1));
-        deleteSelection.setPreferredSize(new Dimension(500, 350));
-        JPanel emptyBox1 = new JPanel();
-        emptyBox1.setBackground(Color.WHITE);
-        emptyBox1.setVisible(true);
-        deleteSelection.add(emptyBox1);
-        JPanel emptyBox2 = new JPanel();
-        emptyBox2.setBackground(Color.WHITE);
-        emptyBox2.setVisible(true);
-        deleteSelection.add(emptyBox2);
-        JPanel emptyBox3 = new JPanel();
-        emptyBox3.setBackground(Color.WHITE);
-        emptyBox3.setVisible(true);
-        deleteSelection.add(emptyBox3);
-        JLabel deletePrompt = new JLabel();
-        JComboBox<String> formDropdown = new JComboBox<>(appNames);
-        deletePrompt.setText("Choose the application you want to delete: ");
-        deletePrompt.setHorizontalAlignment(SwingConstants.LEFT);
-        deletePrompt.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        deletePrompt.setForeground(Color.BLACK);
-        deletePrompt.setMaximumSize(new Dimension(400, 50));
-        deletePrompt.setVisible(true);
-        deleteSelection.add(deletePrompt);
-        formDropdown.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        formDropdown.setForeground(Color.BLACK);
-        formDropdown.setMaximumSize(new Dimension(400, 50));
-        formDropdown.setVisible(true);
-        deleteSelection.add(formDropdown);
-        JPanel emptyBox4 = new JPanel();
-        emptyBox4.setBackground(Color.WHITE);
-        emptyBox4.setVisible(true);
-        deleteSelection.add(emptyBox4);
-        JPanel emptyBox5 = new JPanel();
-        emptyBox5.setBackground(Color.WHITE);
-        emptyBox5.setVisible(true);
-        deleteSelection.add(emptyBox5);
-        JPanel emptyBox6 = new JPanel();
-        emptyBox6.setBackground(Color.WHITE);
-        emptyBox6.setVisible(true);
-        deleteSelection.add(emptyBox6);
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setBackground(Color.WHITE);
-        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
-        buttonPanel.setPreferredSize(new Dimension(400, 50));
-        JButton cancelButton = new JButton();
-        JButton saveButton = new JButton();
-        buttonPanel.add(Box.createHorizontalStrut(100));
-        cancelButton.setText("Cancel");
-        cancelButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        cancelButton.setBackground(new Color(158, 182, 219));
-        cancelButton.setMaximumSize(new Dimension(150, 50));
-        cancelButton.addActionListener(e -> {
-            CardLayout cl = (CardLayout) cardPanel.getLayout();
-            cl.show(cardPanel, "Application Page");
-        });
-        cancelButton.setVisible(true);
-        buttonPanel.add(cancelButton);
-        buttonPanel.add(Box.createHorizontalStrut(200));
-        saveButton.setText("Save");
-        saveButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        saveButton.setBackground(new Color(158, 182, 219));
-        saveButton.setMaximumSize(new Dimension(150, 50));
-        saveButton.setVisible(true);
-        buttonPanel.add(saveButton);
-        buttonPanel.add(Box.createHorizontalStrut(100));
-        container1.add(deleteSelection);
-        container1.add(buttonPanel);
-        container.add(header);
-        container.add(container1);
-
-        return container;
-    }
-
-    private JPanel createViewApplicationPage() {
-        JPanel container = new JPanel();
-        JPanel container1 = new JPanel();
-        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
-        container1.setLayout(new BoxLayout(container1, BoxLayout.X_AXIS));
-        JPanel header = new JPanel();
-        header.setBackground(new Color(158, 182, 219));
-        header.setLayout(new BorderLayout());
-        header.setPreferredSize(new Dimension(700, 100));
-        JLabel programTitle = new JLabel();
-        JLabel pageTitle = new JLabel();
-        programTitle.setText("ResumeFiller");
-        programTitle.setHorizontalAlignment(SwingConstants.CENTER);
-        programTitle.setFont(new Font("Lucida Fax", Font.PLAIN, 30));
-        programTitle.setForeground(Color.BLACK);
-        programTitle.setVisible(true);
-        pageTitle.setText("View Application");
-        pageTitle.setHorizontalAlignment(SwingConstants.CENTER);
-        pageTitle.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        pageTitle.setForeground(Color.BLACK);
-        pageTitle.setVisible(true);
-        header.add(programTitle, BorderLayout.NORTH);
-        header.add(pageTitle, BorderLayout.SOUTH);
-        JPanel formPanelField = new JPanel();
-        formPanelField.setBackground(Color.WHITE);
-        formPanelField.setPreferredSize(new Dimension(250, 400));
-        formPanelField.setLayout(new BoxLayout(formPanelField, BoxLayout.Y_AXIS));
-        JLabel fieldLabel0 = new JLabel();
-        JLabel fieldLabel1 = new JLabel();
-        JLabel fieldLabel2 = new JLabel();
-        JLabel fieldLabel3 = new JLabel();
-        JLabel fieldLabel4 = new JLabel();
-        JLabel fieldLabel5 = new JLabel();
-        JLabel fieldLabel6 = new JLabel();
-        JLabel fieldLabel7 = new JLabel();
-        formPanelField.add(Box.createVerticalStrut(5));
-        fieldLabel0.setText("Application to View:");
-        fieldLabel0.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        fieldLabel0.setForeground(Color.BLACK);
-        fieldLabel0.setAlignmentX(Component.CENTER_ALIGNMENT);
-        fieldLabel0.setVisible(true);
-        formPanelField.add(fieldLabel0);
-        formPanelField.add(Box.createVerticalStrut(15));
-        fieldLabel1.setText("Application Name:");
-        fieldLabel1.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        fieldLabel1.setForeground(Color.BLACK);
-        fieldLabel1.setAlignmentX(Component.CENTER_ALIGNMENT);
-        fieldLabel1.setVisible(true);
-        formPanelField.add(fieldLabel1);
-        formPanelField.add(Box.createVerticalStrut(20));
-        fieldLabel2.setText("Full Name:");
-        fieldLabel2.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        fieldLabel2.setForeground(Color.BLACK);
-        fieldLabel2.setAlignmentX(Component.CENTER_ALIGNMENT);
-        fieldLabel2.setVisible(true);
-        formPanelField.add(fieldLabel2);
-        formPanelField.add(Box.createVerticalStrut(20));
-        fieldLabel3.setText("Email:");
-        fieldLabel3.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        fieldLabel3.setForeground(Color.BLACK);
-        fieldLabel3.setAlignmentX(Component.CENTER_ALIGNMENT);
-        fieldLabel3.setVisible(true);
-        formPanelField.add(fieldLabel3);
-        formPanelField.add(Box.createVerticalStrut(20));
-        fieldLabel4.setText("Phone Number:");
-        fieldLabel4.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        fieldLabel4.setForeground(Color.BLACK);
-        fieldLabel4.setAlignmentX(Component.CENTER_ALIGNMENT);
-        fieldLabel4.setVisible(true);
-        formPanelField.add(fieldLabel4);
-        formPanelField.add(Box.createVerticalStrut(20));
-        fieldLabel5.setText("Address:");
-        fieldLabel5.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        fieldLabel5.setForeground(Color.BLACK);
-        fieldLabel5.setAlignmentX(Component.CENTER_ALIGNMENT);
-        fieldLabel5.setVisible(true);
-        formPanelField.add(fieldLabel5);
-        formPanelField.add(Box.createVerticalStrut(20));
-        fieldLabel6.setText("Experience:");
-        fieldLabel6.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        fieldLabel6.setForeground(Color.BLACK);
-        fieldLabel6.setAlignmentX(Component.CENTER_ALIGNMENT);
-        fieldLabel6.setVisible(true);
-        formPanelField.add(fieldLabel6);
-        formPanelField.add(Box.createVerticalStrut(20));
-        fieldLabel7.setText("Qualifications:");
-        fieldLabel7.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        fieldLabel7.setForeground(Color.BLACK);
-        fieldLabel7.setAlignmentX(Component.CENTER_ALIGNMENT);
-        fieldLabel7.setVisible(true);
-        formPanelField.add(fieldLabel7);
-        formPanelField.add(Box.createVerticalStrut(60));
-        JPanel inputTextField = new JPanel();
-        inputTextField.setPreferredSize(new Dimension(450, 400));
-        inputTextField.setLayout(new BoxLayout(inputTextField, BoxLayout.Y_AXIS));
-        inputTextField.setBackground(Color.WHITE);
-        JTextField inputField1 = new JTextField();
-        JTextField inputField2 = new JTextField();
-        JTextField inputField3 = new JTextField();
-        JTextField inputField4 = new JTextField();
-        JTextField inputField5 = new JTextField();
-        JTextField inputField6 = new JTextField();
-        JTextField inputField7 = new JTextField();
-        JComboBox<String> formDropdown = new JComboBox<>(formNames);
-        JButton returnButton = new JButton();
-        formDropdown.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        formDropdown.setForeground(Color.BLACK);
-        formDropdown.setVisible(true);
-        inputTextField.add(formDropdown);
-        inputField1.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        inputField1.setForeground(Color.BLACK);
-        inputField1.setVisible(true);
-        inputTextField.add(inputField1);
-        inputField2.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        inputField2.setForeground(Color.BLACK);
-        inputField2.setVisible(true);
-        inputTextField.add(inputField2);
-        inputField3.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        inputField3.setForeground(Color.BLACK);
-        inputField3.setVisible(true);
-        inputTextField.add(inputField3);
-        inputField4.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        inputField4.setForeground(Color.BLACK);
-        inputField4.setVisible(true);
-        inputTextField.add(inputField4);
-        inputField5.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        inputField5.setForeground(Color.BLACK);
-        inputField5.setVisible(true);
-        inputTextField.add(inputField5);
-        inputField6.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        inputField6.setForeground(Color.BLACK);
-        inputField6.setVisible(true);
-        inputTextField.add(inputField6);
-        inputField7.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
-        inputField7.setForeground(Color.BLACK);
-        inputField7.setVisible(true);
-        inputTextField.add(inputField7);
-        returnButton.setText("Return to Application Page");
-        returnButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        returnButton.setBackground(new Color(158, 182, 219));
-        returnButton.setMaximumSize(new Dimension(400, 50));
-        returnButton.setAlignmentX(Component.LEFT_ALIGNMENT);
-        returnButton.addActionListener(e -> {
-            CardLayout cl = (CardLayout) cardPanel.getLayout();
-            cl.show(cardPanel, "Application Page");
-        });
-        returnButton.setVisible(true);
-        inputTextField.add(returnButton);
-        container1.add(formPanelField);
-        container1.add(inputTextField);
         container.add(header);
         container.add(container1);
 
@@ -1290,27 +946,21 @@ public class resumeFiller extends JFrame {
 
         JPanel mainMenu = createMainMenu();
         JPanel formsPage = createFormPage();
-        JPanel appPage = createApplicationPage();
         JPanel settingsPage = createSettingsPage();
         JPanel createFormPage = createCreateFormPage();
         JPanel editFormPage = createEditFormPage();
         JPanel deleteFormPage = createDeleteFormPage();
         JPanel viewFormPage = createViewFormPage();
         JPanel createApplicationPage = createCreateApplicationPage();
-        JPanel deleteApplicationPage = createDeleteApplicationPage();
-        JPanel viewApplicationPage = createViewApplicationPage();
 
         cardPanel.add(mainMenu, "Main Menu");
         cardPanel.add(formsPage, "Form Page");
-        cardPanel.add(appPage, "Application Page");
         cardPanel.add(settingsPage, "Settings Page");
         cardPanel.add(createFormPage, "Create Form Page");
         cardPanel.add(editFormPage, "Edit Form Page");
         cardPanel.add(deleteFormPage, "Delete Form Page");
         cardPanel.add(viewFormPage, "View Form Page");
         cardPanel.add(createApplicationPage, "Create Application Page");
-        cardPanel.add(deleteApplicationPage, "Delete Application Page");
-        cardPanel.add(viewApplicationPage, "View Application Page");
 
         add(cardPanel);
         pack();
