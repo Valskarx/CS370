@@ -189,7 +189,7 @@ public class resumeFiller extends JFrame {
 
         return container;
     }
-    
+
     private JPanel createSettingsPage() {
         JPanel container = new JPanel();
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
@@ -217,8 +217,6 @@ public class resumeFiller extends JFrame {
         BoxLayout boxlayout = new BoxLayout(buttonPanel, BoxLayout.Y_AXIS);
         buttonPanel.setLayout(boxlayout);
         JButton deleteDataButton = new JButton();
-        JButton highContrastButton = new JButton();
-        JButton defaultButton = new JButton();
         JButton returnHomeButton = new JButton();
         deleteDataButton.setText("Clear All Resume Data");
         deleteDataButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
@@ -226,28 +224,6 @@ public class resumeFiller extends JFrame {
         deleteDataButton.setMaximumSize(new Dimension(350, 50));
         deleteDataButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         deleteDataButton.setVisible(true);
-        highContrastButton.setText("High Contrast Mode");
-        highContrastButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        highContrastButton.setBackground(uiColor);
-        highContrastButton.setMaximumSize(new Dimension(350, 50));
-        highContrastButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        highContrastButton.addActionListener(e -> {
-            uiColor = Color.WHITE;
-            cardPanel.revalidate();
-            cardPanel.repaint();
-        });
-        highContrastButton.setVisible(true);
-        defaultButton.setText("Reset to Default");
-        defaultButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
-        defaultButton.setBackground(uiColor);
-        defaultButton.setMaximumSize(new Dimension(350, 50));
-        defaultButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        defaultButton.addActionListener(e -> {
-            uiColor = new Color(158, 182, 219);
-            cardPanel.revalidate();
-            cardPanel.repaint();
-        });
-        defaultButton.setVisible(true);
         returnHomeButton.setText("Return to Main Menu");
         returnHomeButton.setFont(new Font("Lucida Fax", Font.PLAIN, 25));
         returnHomeButton.setBackground(uiColor);
@@ -260,10 +236,6 @@ public class resumeFiller extends JFrame {
         returnHomeButton.setVisible(true);
         buttonPanel.add(Box.createVerticalStrut(25));
         buttonPanel.add(deleteDataButton);
-        buttonPanel.add(Box.createVerticalStrut(30));
-        buttonPanel.add(highContrastButton);
-        buttonPanel.add(Box.createVerticalStrut(30));
-        buttonPanel.add(defaultButton);
         buttonPanel.add(Box.createVerticalStrut(30));
         buttonPanel.add(returnHomeButton);
         container.add(header);
@@ -878,10 +850,17 @@ public class resumeFiller extends JFrame {
         emptyBox2.setBackground(Color.WHITE);
         emptyBox2.setVisible(true);
         createSelection.add(emptyBox2);
-        JPanel emptyBox3 = new JPanel();
-        emptyBox3.setBackground(Color.WHITE);
-        emptyBox3.setVisible(true);
-        createSelection.add(emptyBox3);
+        JLabel urlPrompt = new JLabel();
+        urlPrompt.setText("Job Site URL:");
+        urlPrompt.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
+        urlPrompt.setForeground(Color.BLACK);
+        urlPrompt.setVisible(true);
+        createSelection.add(urlPrompt);
+        JTextField urlInputField = new JTextField();
+        urlInputField.setFont(new Font("Lucida Fax", Font.PLAIN, 20));
+        urlInputField.setForeground(Color.BLACK);
+        urlInputField.setVisible(true);
+        createSelection.add(urlInputField);
         JLabel formNamePrompt = new JLabel();
         JComboBox<String> formDropdown = new JComboBox<>(formNames);
         formNamePrompt.setText("Choose the form you want to use in the autofill:");
@@ -894,18 +873,14 @@ public class resumeFiller extends JFrame {
         formDropdown.setMaximumSize(new Dimension(400, 50));
         formDropdown.setVisible(true);
         createSelection.add(formDropdown);
+        JPanel emptyBox3 = new JPanel();
+        emptyBox3.setBackground(Color.WHITE);
+        emptyBox3.setVisible(true);
+        createSelection.add(emptyBox3);
         JPanel emptyBox4 = new JPanel();
         emptyBox4.setBackground(Color.WHITE);
         emptyBox4.setVisible(true);
         createSelection.add(emptyBox4);
-        JPanel emptyBox5 = new JPanel();
-        emptyBox5.setBackground(Color.WHITE);
-        emptyBox5.setVisible(true);
-        createSelection.add(emptyBox5);
-        JPanel emptyBox6 = new JPanel();
-        emptyBox6.setBackground(Color.WHITE);
-        emptyBox6.setVisible(true);
-        createSelection.add(emptyBox6);
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.WHITE);
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
